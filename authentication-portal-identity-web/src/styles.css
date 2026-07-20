@@ -1,0 +1,388 @@
+/* ===================================================
+   Design Tokens
+   =================================================== */
+:root {
+  --color-primary:        #4F46E5;
+  --color-primary-hover:  #4338CA;
+  --color-primary-light:  #EEF2FF;
+
+  --color-text:           #111827;
+  --color-text-secondary: #374151;
+  --color-text-muted:     #6B7280;
+
+  --color-border:         #E5E7EB;
+  --color-border-strong:  #D1D5DB;
+  --color-border-focus:   #4F46E5;
+
+  --color-error:          #DC2626;
+  --color-error-bg:       #FEF2F2;
+  --color-error-border:   #FECACA;
+
+  --color-surface:        #FFFFFF;
+  --color-bg:             #F3F4F6;
+
+  --radius-sm:   4px;
+  --radius:      8px;
+  --radius-lg:   12px;
+
+  --shadow-sm:   0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow:      0 1px 3px rgba(0, 0, 0, 0.10), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md:   0 4px 6px -1px rgba(0, 0, 0, 0.10), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+               'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ===================================================
+   Reset
+   =================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===================================================
+   Auth Pages  (login / register)
+   =================================================== */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  background-color: var(--color-bg);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 40px 40px 36px;
+}
+
+/* Brand block inside auth card */
+.auth-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.auth-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  background-color: var(--color-primary);
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+}
+
+.auth-logo svg {
+  width: 22px;
+  height: 22px;
+  fill: #ffffff;
+}
+
+.auth-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.3px;
+  margin: 0 0 6px;
+}
+
+.auth-subtitle {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* ===================================================
+   Form Fields
+   =================================================== */
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.field input {
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-surface);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.field input:focus {
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+}
+
+.field input::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* ===================================================
+   Buttons
+   =================================================== */
+.btn-primary {
+  display: block;
+  width: 100%;
+  height: 40px;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  letter-spacing: 0.1px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.btn-primary:active {
+  background-color: var(--color-primary-hover);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  height: 34px;
+  padding: 0 14px;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-outline:hover {
+  background-color: var(--color-bg);
+  border-color: var(--color-border-strong);
+}
+
+/* ===================================================
+   Error Banner
+   =================================================== */
+.error-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid var(--color-error-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-error-bg);
+  color: var(--color-error);
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+/* ===================================================
+   Auth Footer  (sign-up / sign-in link row)
+   =================================================== */
+.auth-footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.auth-footer a {
+  color: var(--color-primary);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ===================================================
+   App Shell  (home page)
+   =================================================== */
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+}
+
+/* Top navigation bar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  height: 60px;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.navbar-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: var(--color-primary);
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.navbar-logo svg {
+  width: 16px;
+  height: 16px;
+  fill: #ffffff;
+}
+
+.navbar-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.2px;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.navbar-user {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+/* Main content area */
+.main-content {
+  flex: 1;
+  padding: 40px 24px;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 28px;
+}
+
+.page-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.3px;
+  margin: 0 0 4px;
+}
+
+.page-subtitle {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* Welcome card */
+.welcome-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.welcome-card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-primary-light);
+  border-radius: var(--radius);
+  flex-shrink: 0;
+}
+
+.welcome-card-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--color-primary);
+}
+
+.welcome-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.welcome-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.welcome-card-text {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin: 0;
+}

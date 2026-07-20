@@ -1,0 +1,22 @@
+# Visual Studio
+.vs/
+bin/
+obj/
+
+# Angular
+node_modules/
+.angular/
+dist/
+
+# VS Code
+.vscode/
+
+# Cursor
+.cursor/
+
+# Logs
+*.log
+
+# User files
+*.user
+*.suo

@@ -1,0 +1,24 @@
+@Authentication.Portal.Identity.Api_HostAddress = http://localhost:5241
+
+### Register
+POST {{Authentication.Portal.Identity.Api_HostAddress}}/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "example",
+  "password": "password123"
+}
+
+### Login
+# @name login
+POST {{Authentication.Portal.Identity.Api_HostAddress}}/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "example",
+  "password": "password123"
+}
+
+### Get current user (protected)
+GET {{Authentication.Portal.Identity.Api_HostAddress}}/api/auth/me
+Authorization: Bearer {{login.response.body.token}}
