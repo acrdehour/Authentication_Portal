@@ -27,10 +27,10 @@ services:
   # 3. Angular Frontend
   angular-web:
     build:
-      context: ./authentication-portal-identity-web         # ชี้ไปโฟลเดอร์ frontend
+      context: ./authentication-portal-identity-web         
       dockerfile: Dockerfile
     container_name: portal_web
     ports:
-      - "80:80"                  # เปิดเว็บที่พอร์ต 80
+      - "80:80"                  
     depends_on:
       - identity-api
