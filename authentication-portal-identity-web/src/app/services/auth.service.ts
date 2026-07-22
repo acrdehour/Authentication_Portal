@@ -8,7 +8,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  private apiUrl = 'http://localhost:5241/api/auth';
+  private apiUrl = '/api/auth';
 
   login(username: string, password: string) {
 

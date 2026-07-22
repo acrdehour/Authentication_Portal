@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  # 1. Database
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: mssql_db
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Password123!
+    ports:
+      - "1433:1433"
+
+  # 2. .NET Core Web API
+  identity-api:
+    build:
+      context: ./Authentication.Portal.Identity.Api      # ชี้ไปโฟลเดอร์ backend
+      dockerfile: Dockerfile
+    container_name: portal_api
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=AuthenticationPortalIdentityDb;User Id=sa;Password=Password123!;TrustServerCertificate=True;
+    expose:
+      - "8080"
+    depends_on:
+      - sqlserver
+
+  # 3. Angular Frontend
+  angular-web:
+    build:
+      context: ./authentication-portal-identity-web         # ชี้ไปโฟลเดอร์ frontend
+      dockerfile: Dockerfile
+    container_name: portal_web
+    ports:
+      - "80:80"                  # เปิดเว็บที่พอร์ต 80
+    depends_on:
+      - identity-api
