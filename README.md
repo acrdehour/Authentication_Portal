@@ -1,6 +1,11 @@
-# Example Identity Authentication
+# Authentication Portal
 
-A simple full-stack authentication system developed as a technical assessment.
+A simple full-stack authentication system.
+
+## Branches
+
+- main — ASP.NET Core API + Angular application
+- dockerize — Docker Compose, multi-stage Dockerfiles, nginx reverse proxy configuration
 
 ## Screenshots
 
